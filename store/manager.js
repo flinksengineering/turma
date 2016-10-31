@@ -468,10 +468,6 @@ module.exports = function(options) {
 			mm.create(args.coll, args.entity, callback);
 		},
 		
-		//read_all_documents: function(args, callback) {
-			//mm.read_all(args.coll, callback);
-		//},
-		
 		read_document: function(args, callback) {
 			var projection = args.projection || null;
 			mm.read(args.coll, args.entity, projection, callback);
