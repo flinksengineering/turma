@@ -35,8 +35,6 @@ module.exports = function(options){
 	this.add({role:name, cmd:"update"}, manager.update_document);
 	this.add({role:name, cmd:"upsert"}, manager.upsert_document);
 	this.add({role:name, cmd:"delete"}, manager.delete_document);
-	//this.add({role:name, cmd:"bulk:insert"}, manager.create_documents);
-	
 	
 	this.add({init:name}, function(args, callback){
 		manager.init(configs.db_config, configs.options, function(err, result){
