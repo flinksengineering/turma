@@ -1,0 +1,68 @@
+- ACCOUNT MODEL
+
+{
+	"_id" : "000zzzaa",
+	"first_name" : "Ciccio",
+	"last_name" : "Panda",
+	"username" : "ciccio",
+	"password" : "secretpassword",
+	"scope" : "admin"
+}
+
+- CLIENT MODEL
+
+{
+	"_id" : "1111dddd",
+	"name" : "site client",
+	"clientId" : "clientxyz",
+	"clientSecret" : "secretstring",
+	"trustedClient" : true,
+	"redirectUri" : "http://localhost:4000/admin",
+	"scope" : "site"
+}
+
+- CATHEGORY MODEL
+
+{
+	"_id" : "87654321",
+	"name" : "ICT",
+	"description" : "long description"
+}
+
+
+- COMPANY MODEL
+
+{
+	"_id" : "1234abcd",
+	"details" : {
+		"name" : "Flinks",
+		"category" : {
+			"_id" : "aabbccdd",
+			"name" : "ICT"
+		},
+		"description" : "A beautiful company"
+	},
+	"location" : {
+		"address" : {
+			"street" : "Via La Guardia",
+			"zip" : "09034",
+			"city" : "Villasor",
+			"state" : "Cagliari"
+		},
+		"geocode" : {
+			"lat" : 39.3848328,
+			"lon" : 8.944041599999991
+		}
+	},
+	"contacts" : {
+		"email_address" : "impresa5@email.com",
+		"phone" : "1233555",
+		"mobile" : "1234567890",
+		"skype" : "impresa5",
+		"web_site" : "www.impresa5.com",
+		"twitter": "#impresa5",
+		"facebook": "impresa5",
+		"instagram": "inst"
+	}
+}
+

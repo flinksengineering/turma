@@ -1,0 +1,22 @@
+CURL QUERY TEST
+
+1. QUERY
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"query", "query_params":{"query":{"fields":["details.name"], "text":"texttosearch"}}}'
+
+1. FILTER
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"filter", "query_params":{"filter":[{"field":"details.category.name", "val":"edile"}]}}'
+
+2. FILTERED QUERY
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"filtered_query", "query_params":{"filter":[{"field":"details.category.name", "val":"ICT"}], "query":{"text":"mare", "fields":["details.description", "details.name"]}}}'
+
+3. GEO DISTANCE
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"geo_point_distance", "query_params":{"field":"location.geocode", "lat":40.123, "lon":8.234, "dist":60}}'
+ 
+4. GEO DISTANCE + FILTER
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"geo_point_distance_filtered_query", "query_params":{"filter":[{"field":"details.category.name", "val":"ICT"}], "field":"location.geocode", "lat":40.123, "lon":8.234, "dist":400}}'
+ 
+5. GEO DISTANCE + QUERY
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"geo_point_distance_filtered_query", "query_params":{"query":{"text":"mare", "fields":["details.description", "details.name"]}, "field":"location.geocode", "lat":40.123, "lon":8.234, "dist":400}}'
+ 
+6. GEO DISTANCE + FILTER + QUERY
+curl -XPOST 'http://localhost:8000/api/companies/search' -H 'Content-type:application/json' -d '{"size":4, "from":0, "query_type":"geo_point_distance_filtered_query", "query_params":{"filter":[{"field":"details.category.name", "val":"ICT"}], "query":{"text":"mare", "fields":["details.description", "details.name"]}, "field":"location.geocode", "lat":40.123, "lon":8.234, "dist":400}}'

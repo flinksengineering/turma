@@ -1,0 +1,20 @@
+{
+	"name": "store",
+	"version": "0.0.1",
+	"description": "mongodb microservice",
+	"main": "service.js",
+	"keywords": [
+		"seneca",
+		"mongodb",
+		"microservice"
+	],
+	"author": "Flinks",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"async": "2.x.x",
+		"seneca": "3.x.x",
+		"mongodb": "2.x.x",
+		"shortid": "2.x.x",
+		"bcryptjs": "2.x.x"
+	}
+}

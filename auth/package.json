@@ -1,0 +1,30 @@
+{
+	"version": "0.0.1",
+	"name": "oauth2",
+	"description": "OAuth2 authorization server",
+	"keywords": [
+		"express",
+		"oauth2",
+		"provider"
+	],
+	"author": "Team",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"express": "4.x",
+		"express-session": "1.x.x",
+		"cookie-parser": "1.x.x",
+		"body-parser": "1.x.x",
+		"cors": "2.x.x",
+	    "bcryptjs": "2.x.x",
+	    "oauth2orize": "1.x.x",
+	    "passport": "0.x.x",
+		"passport-local": "1.x.x",
+		"passport-http": "0.x.x",
+		"passport-http-bearer": "1.x.x",
+		"passport-oauth2-client-password": "0.x.x",
+		"connect-ensure-login": "0.x.x",
+		"moment-timezone":"0.x.x",
+		"ejs": "2.x.x",
+		"unirest": "0.x.x"
+	}
+}

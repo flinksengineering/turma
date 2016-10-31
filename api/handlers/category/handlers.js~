@@ -1,0 +1,66 @@
+exports.create = function (request, reply) {
+	var server = arguments["0"]["server"];
+	server.seneca.act(
+		{role:"company", cmd:"create_category"}, 
+		{payload:request.payload},
+		function(err, out){
+			reply(err || out);
+		}
+	);
+};
+
+exports.paginate = function (request, reply) {
+	var server = arguments["0"]["server"];
+	server.seneca.act(
+		{role:"company", cmd:"paginate_categories"}, 
+		{params:{from:request.query.from, size:request.query.size}},
+		function(err, out){
+			reply(err || out);
+		}
+	);
+};
+
+exports.read = function (request, reply) {
+	var server = arguments["0"]["server"];
+	server.seneca.act(
+		{role:"company", cmd:"read_category"}, 
+		{params:{id:request.params.id}},
+		function(err, out){
+			reply(err || out);
+		}
+	);
+};
+
+exports.update = function (request, reply) {
+	var server = arguments["0"]["server"];
+	server.seneca.act(
+		{role:"company", cmd:"update_category"}, 
+		{payload:request.payload, id:request.params.id},
+		function(err, out){
+			reply(err || out);
+		}
+	);
+};
+
+exports.delete = function (request, reply) {
+	var server = arguments["0"]["server"];
+	server.seneca.act(
+		{role:"company", cmd:"delete_category"}, 
+		{id:request.params.id},
+		function(err, out){
+			reply(err || out);
+		}
+	);
+};
+
+exports.search = function (request, reply) {
+	var server = arguments["0"]["server"];
+	server.seneca.act(
+		{role:"company", cmd:"search_category"}, 
+		{params:{from:request.query.from, size:request.query.size, 
+			q:request.query.q, field:request.query.field}},
+		function(err, out){
+			reply(err || out);
+		}
+	);
+};

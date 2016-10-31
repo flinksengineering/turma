@@ -1,0 +1,17 @@
+{
+	"name": "recipe",
+	"version": "0.0.1",
+	"description": "recipe microservice",
+	"main": "service.js",
+	"keywords": [
+		"seneca",
+		"recipe",
+		"microservice"
+	],
+	"author": "Flinks",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"async": "2.x.x",
+		"seneca": "3.x.x"
+	}
+}

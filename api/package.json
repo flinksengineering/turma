@@ -1,0 +1,24 @@
+{
+	"name": "api",
+	"version": "0.0.1",
+	"description": "api microservice",
+	"main": "service.js",
+	"keywords": [
+		"seneca",
+		"hapi",
+		"microservice"
+	],
+	"author": "Flinks",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"seneca": "3.x.x",
+		"hapi": "14.x.x",
+		"chairo": "2.x.x",
+		"async": "2.x.x",
+		"boom": "4.x.x",
+		"requestretry": "1.x.x",
+		"bcryptjs": "2.x.x",
+		"unirest": "0.x.x",
+		"shortid": "2.x.x"
+	}
+}

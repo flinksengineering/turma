@@ -1,0 +1,66 @@
+version: '2'
+services:
+  api:
+    build: ./api/
+    ports:
+      - 10000
+      - 44000
+  auth:
+    build: ./auth/
+    ports:
+      - "10008:10008"
+    environment:
+      - TZ=Europe/Rome
+  db:
+    image: mongo:3
+    volumes:
+      - /data/db:/data/db
+    ports:
+      - 27017
+    command: --smallfiles --rest --httpinterface 
+  elastic:
+    image: elasticsearch:2
+    volumes:
+      - /data/elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - 9200
+      - 9300
+  proxy:
+    image: proxy:0.1
+    depends_on:
+      - api
+    ports:
+      - "8000:80"
+    environment:
+      - NGINX_HOST=127.0.0.1
+      - NGINX_PROXY=http://api:10000
+  recipe:
+    build: ./recipe/
+    ports:
+      - 44004
+  search:
+    build: ./search/
+    depends_on:
+      - elastic
+    ports:
+      - 10002
+      - 44002
+    environment:
+      - DB_NAME=turma
+      - DB_PORT=9200
+    restart: always
+  store:
+    build: ./store/
+    depends_on:
+      - db
+    ports:
+      - 44001
+    environment:
+      - DB_NAME=turma
+      - ROOT_PASSWORD=admin
+      - ROOT_USERNAME=admin
+      - SITE_KEY=client0
+      - SITE_SECRET=M?VwfAXGVV!v6GRyF+*N9*9L3mRBfD
+      - SITE_REDIRECT=http://localhost:4000/admin
+    restart: always
+    
