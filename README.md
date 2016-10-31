@@ -1,4 +1,4 @@
-# turma
+# Turma
 Registry businesses api
 
 Turma is a simple rest api. It has been created to manage registry businesses.
