@@ -36,17 +36,17 @@ To start the docker-compose:
 
 ```sh
 $ dc turma
-$ docker-compse up -d
+$ docker-compose up -d
 ```
 
 To finish using Turma be sure to stop all running containers:
 
 ```sh
-$ docker-compse stop
+$ docker-compose stop
 ```
 
 To remove old containers
 
 ```sh
-$ docker-compse rm --all
+$ docker-compose rm --all
 ```
