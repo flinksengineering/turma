@@ -22,28 +22,26 @@
 
 const runner = require("./runner");
 
-function Visitor () {};
+function Visitor (callback) {
+	this.callback = callback;
+};
 
-Visitor.prototype.eval = function (skeleton, params, skeleton_type, callback) {
-	switch (skeleton_type) {
-		case "seq": 
-			this.eval_seq(skeleton, params, callback); 
-			break;
-		case "map": 
-			this.eval_map(skeleton, params, callback);
+Visitor.prototype.get_type = function (item) {
+	return item.constructor.name;
+};
+
+Visitor.prototype.eval = function (skeleton, params) {
+	switch (this.get_type(skeleton)) {
+		case "Seq": 
+			this.eval_seq(skeleton, params); 
 			break;
 	}
 };
 
-Visitor.prototype.eval_seq = function (skeleton, params, callback) {
-	runner.serial_run(skeleton.execute, params, callback);
+Visitor.prototype.eval_seq  = function (skeleton, params) {
+	runner.series(skeleton.execute, params, this.callback);
 };
 
-
-Visitor.prototype.eval_map = function (skeleton, params, callback) {
-	runner.parallel_run(skeleton.execute, params, callback);
-};
-
-exports.Visitor = function () {
-	return new Visitor();
+exports.Visitor = function (callback) {
+	return new Visitor(callback);
 };
