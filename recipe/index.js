@@ -27,7 +27,6 @@ module.exports = function (options) {
 	var name = "recipe";
 	
 	this.add({role:name, cmd:"seq"}, manager.seq);
-	this.add({role:name, cmd:"map"}, manager.map);
 	
 	this.client({host:"store", port:44001, pin:"role:store"});
 	this.client({host:"search", port:44002, pin:"role:search"});
