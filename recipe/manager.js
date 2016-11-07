@@ -21,6 +21,7 @@
 "use strict";
 
 const Seq     = require("./skeleton/skeleton").Seq;
+const Map     = require("./skeleton/skeleton").Map;
 const Visitor = require("./skeleton/visitor").Visitor;
 const task    = require("./skeleton/task");
 
