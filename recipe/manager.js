@@ -35,3 +35,15 @@ exports.seq = function (args, callback) {
 	var visitor = Visitor(callback);
 	visitor.eval(seq1, args);
 };
+
+exports.map = function (args, callback) {
+	var seneca = this;
+	
+	var execute = function (p, cb) {
+		task.exec(seneca, p, cb);
+	};
+	
+	var map1    = Map(execute);
+	var visitor = Visitor(callback);
+	visitor.eval(map1, args);
+};
