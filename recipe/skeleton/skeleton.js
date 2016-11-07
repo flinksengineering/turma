@@ -24,16 +24,7 @@ function Seq (execute) {
 	this.execute = execute;
 };
 
-function Map (split, execute, merge) {
-	this.split   = split;
-	this.execute = execute;
-	this.merge   = merge;
-};
-
 exports.Seq = function (execute) {
 	return new Seq(execute);
 };
 
-exports.Map = function (split, execute, merge) {
-	return new Map(split, execute, merge);
-};
