@@ -22,7 +22,7 @@
 
 const async = require("async");
 
-exports.series   = function (skeleton, params, callback) {
+exports.series = function (skeleton, params, callback) {
 	async.mapSeries(params.args, skeleton, callback); 
 };
 
