@@ -22,10 +22,10 @@
 
 const async = require("async");
 
-exports.serial_run   = function (skeleton, params, callback) {
+exports.series   = function (skeleton, params, callback) {
 	async.mapSeries(params.args, skeleton, callback); 
 };
 
-exports.parallel_run = function (skeleton, params, callback) {
+exports.map = function (skeleton, params, callback) {
 	async.map(params.args, skeleton, callback); 
 };
