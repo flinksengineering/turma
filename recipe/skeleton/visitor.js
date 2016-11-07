@@ -35,11 +35,18 @@ Visitor.prototype.eval = function (skeleton, params) {
 		case "Seq": 
 			this.eval_seq(skeleton, params); 
 			break;
+		case "Map": 
+			this.eval_map(skeleton, params); 
+			break;
 	}
 };
 
 Visitor.prototype.eval_seq  = function (skeleton, params) {
 	runner.series(skeleton.execute, params, this.callback);
+};
+
+Visitor.prototype.eval_map  = function (skeleton, params) {
+	runner.map(skeleton.execute, params, this.callback);
 };
 
 exports.Visitor = function (callback) {
