@@ -21,7 +21,6 @@
 "use strict";
 
 const Seq     = require("./skeleton/skeleton").Seq;
-const Map     = require("./skeleton/skeleton").Map;
 const Visitor = require("./skeleton/visitor").Visitor;
 const task    = require("./skeleton/task");
 
@@ -33,30 +32,6 @@ exports.seq = function (args, callback) {
 	};
 	
 	var seq1    = Seq(execute);
-	var visitor = Visitor();
-	visitor.eval(seq1, args, "seq", callback);
-};
-
-exports.map = function (args, callback) {
-	var seneca = this;
-	
-	var split = function (p) {
-		return p;
-	};
-	
-	var execute = function (p, cb) {
-		task.exec(seneca, p, cb);
-	};
-	
-	var merge = function (p) {
-		return p;
-	};
-	
-	var seq1 = Seq(split);
-	var seq2 = Seq(execute);
-	var seq3 = Seq(merge);
-	var map1 = Map(split, execute, merge);
-	
-	var visitor = Visitor();
-	visitor.eval(map1, args, "map", callback)
+	var visitor = Visitor(callback);
+	visitor.eval(seq1, args);
 };
