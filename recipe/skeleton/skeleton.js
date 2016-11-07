@@ -24,7 +24,14 @@ function Seq (execute) {
 	this.execute = execute;
 };
 
+function Map (execute) {
+	this.execute = execute;
+};
+
 exports.Seq = function (execute) {
 	return new Seq(execute);
 };
 
+exports.Map = function (execute) {
+	return new Map(execute);
+};
